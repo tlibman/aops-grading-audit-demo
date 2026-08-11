@@ -42,6 +42,7 @@ let saved = JSON.parse(localStorage.getItem("aops-demo-ratings") || "{}");
 const seeded = { "demo-001": ["Noah"], "demo-003": ["Hannah"], "demo-005": ["Noah", "Hannah"], "demo-008": ["Tanny"] };
 const app = document.querySelector("#app");
 const reviewerSelect = document.querySelector("#reviewer");
+const demoRefresh = document.querySelector("#demo-refresh");
 reviewerSelect.value = reviewer;
 
 function esc(value) { return String(value ?? "").replace(/[&<>"']/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]); }
@@ -200,4 +201,19 @@ function toast(text) { const element = document.querySelector("#toast"); element
 
 document.querySelectorAll("[data-view]").forEach(link => link.onclick = event => { event.preventDefault(); view = link.dataset.view; currentId = null; history.replaceState(null, "", `#${view}`); render(); });
 reviewerSelect.onchange = () => { reviewer = reviewerSelect.value; localStorage.setItem("aops-demo-reviewer", reviewer); render(); };
+demoRefresh.onclick = () => {
+  demoRefresh.disabled = true;
+  demoRefresh.className = "refresh-button refresh-running";
+  demoRefresh.querySelector("b").textContent = "Refreshing…";
+  window.setTimeout(() => {
+    demoRefresh.className = "refresh-button refresh-succeeded";
+    demoRefresh.querySelector("b").textContent = "Updated";
+    toast("Demo data refreshed");
+    window.setTimeout(() => {
+      demoRefresh.disabled = false;
+      demoRefresh.className = "refresh-button";
+      demoRefresh.querySelector("b").textContent = "Refresh data";
+    }, 1400);
+  }, 900);
+};
 fetch("fake-submissions.json").then(response => response.json()).then(data => { submissions = data; subject = people()[0]; render(); }).catch(() => { app.innerHTML = '<div class="demo-note">The fabricated demo data could not be loaded.</div>'; });
