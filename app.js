@@ -148,7 +148,7 @@ function scorePair(tech, style, originalTech, originalStyle) {
 }
 
 function detailSection(title, meta, body, className = "") {
-  return `<section class="detail-section ${className}"><header><h2>${title}</h2>${meta ? `<div class="section-meta">${meta}</div>` : ""}</header><div class="section-body">${body}</div></section>`;
+  return `<details class="detail-section ${className}" open><summary><h2>${title}</h2>${meta ? `<div class="section-meta">${meta}</div>` : ""}</summary><div class="section-body">${body}</div></details>`;
 }
 
 function detailView() {
@@ -164,11 +164,12 @@ function detailView() {
     <label class="audit-notes">Notes<textarea id="notes" rows="4" placeholder="Optional">${esc(notes)}</textarea></label><div class="audit-actions"><span id="save-message"></span><button class="button button-primary" id="save">Save audit</button></div>`, "audit-panel");
   app.innerHTML = `${queue}<div class="detail-titlebar"><div><button class="back-link" id="back">← ${detailOrigin === "audit" ? "Audit mode" : "All submissions"}</button><h1>${esc(row.problem)}</h1><code>${esc(row.id)}</code></div></div><div class="detail-stack">
     <details class="problem-materials"><summary><span><strong>Problem materials</strong><small>Statement, official solution, hints, and grading tips</small></span><em>${materials[2].length} hint</em></summary><div class="problem-materials-body"><section><h2>Problem statement</h2><p>${esc(materials[0])}</p></section><section><h2>Official solution</h2><p>${esc(materials[1])}</p></section><section><h2>Hints</h2>${materials[2].map((hint, number) => `<div class="hint"><strong>Hint ${number + 1}</strong><p>${esc(hint)}</p></div>`).join("")}</section><section class="grading-tips"><h2>Grading tips</h2><p>${esc(materials[3])}</p></section></div></details>
-    ${detailSection("Student work", "", `<div class="markup"><p>${esc(row.student)}</p></div>`)}
-    ${detailSection("Grader evaluation", `<strong>${esc(row.grader)}</strong><span>${formatDate(row.date)}</span>`, `${scorePair(row.graderTech, row.graderStyle)}<div class="markup"><p>${esc(row.graderFeedback)}</p></div>`)}
-    ${detailSection("Release 1", `<strong>${esc(row.releaser)}</strong><span>${formatDate(row.date)}</span>`, `${scorePair(row.releaseTech, row.releaseStyle, row.graderTech, row.graderStyle)}${changed ? '<p class="change-callout">Released score differs from the grader’s score.</p>' : ""}<div class="markup"><p>${esc(row.releasedFeedback)}</p></div><div class="releaser-comment"><h3>Releaser → grader/admin</h3><div class="markup"><p>${esc(row.releaserComment)}</p></div></div>`, changed ? "changed-section" : "")}
-    ${auditPanel}
-    ${detailSection("Ratings", "<span>1 recorded</span>", `<div class="ratings-grid"><article><div class="stars" aria-label="4 out of 5 stars">★★★★☆</div><strong>${esc(row.releaser)}</strong><span>${formatDate(row.date)}</span><div class="rating-comment"><small>Rating comment / admin note</small><div class="markup"><p>Fabricated rating shown for the demo.</p></div></div></article></div>`)}
+    <div class="review-workspace"><div class="student-column">${detailSection("Student work", "", `<div class="markup"><p>${esc(row.student)}</p></div>`)}</div><div class="evaluation-column">
+      ${detailSection("Grader evaluation", `<strong>${esc(row.grader)}</strong><span>${formatDate(row.date)}</span>`, `${scorePair(row.graderTech, row.graderStyle)}<div class="markup"><p>${esc(row.graderFeedback)}</p></div>`)}
+      ${detailSection("Release 1", `<strong>${esc(row.releaser)}</strong><span>${formatDate(row.date)}</span>`, `${scorePair(row.releaseTech, row.releaseStyle, row.graderTech, row.graderStyle)}${changed ? '<p class="change-callout">Released score differs from the grader’s score.</p>' : ""}<div class="markup"><p>${esc(row.releasedFeedback)}</p></div><div class="releaser-comment"><h3>Releaser → grader/admin</h3><div class="markup"><p>${esc(row.releaserComment)}</p></div></div>`, changed ? "changed-section" : "")}
+      ${auditPanel}
+      ${detailSection("Ratings", "<span>1 recorded</span>", `<div class="ratings-grid"><article><div class="stars" aria-label="4 out of 5 stars">★★★★☆</div><strong>${esc(row.releaser)}</strong><span>${formatDate(row.date)}</span><div class="rating-comment"><small>Rating comment / admin note</small><div class="markup"><p>Fabricated rating shown for the demo.</p></div></div></article></div>`)}
+    </div></div>
   </div>`;
   document.querySelector("#back").onclick = () => { currentId = null; view = detailOrigin; render(); };
   bindOpenButtons();
