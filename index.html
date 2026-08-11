@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AoPS Grading Audit · Demo</title>
-  <meta name="description" content="Fabricated-data demonstration of the AoPS grading audit interface.">
-  <link rel="stylesheet" href="styles.css">
+  <title>AoPS Audit Workspace</title>
+  <meta name="description" content="Encrypted collaborative workspace for AoPS grading audits.">
+  <meta http-equiv="refresh" content="0; url=https://aops-audit-workspace.nlibman97.chatgpt.site/collaborate">
+  <link rel="canonical" href="https://aops-audit-workspace.nlibman97.chatgpt.site/collaborate">
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; color: #18383d; background: #f5f8f7; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; }
+    main { width: min(420px, calc(100% - 40px)); padding: 28px; border: 1px solid #cad9d6; border-radius: 10px; background: white; text-align: center; box-shadow: 0 8px 30px rgba(18, 54, 59, .08); }
+    h1 { margin: 0 0 16px; font: 28px Georgia, serif; }
+    a { display: inline-block; padding: 10px 16px; border-radius: 6px; background: #0d8275; color: white; font-weight: 700; text-decoration: none; }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#submissions" data-view="submissions" aria-label="AoPS Grading Audit demo home"><span class="brand-mark">A</span><strong>AoPS Grading Audit</strong></a>
-    <nav><a href="#submissions" data-view="submissions">Submissions</a><a href="#audit" data-view="audit" class="active">Audit mode</a><a href="#stats" data-view="stats">Stats</a></nav>
-    <div class="topbar-tools">
-      <label class="reviewer-select">Reviewer<select id="reviewer"><option>Tanny</option><option>Noah</option><option>Hannah</option></select></label>
-      <button type="button" class="refresh-button" id="demo-refresh" title="Simulates a refresh in the fabricated demo"><span aria-hidden="true">↻</span><b>Refresh data</b></button>
-      <div class="server-status status-ready" title="Fabricated demonstration data"><span></span>Demo data</div>
-    </div>
-  </header>
-  <main id="app"><div class="loading">Loading fabricated submissions…</div></main>
-  <div id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js"></script>
+  <main>
+    <h1>AoPS Audit Workspace</h1>
+    <a href="https://aops-audit-workspace.nlibman97.chatgpt.site/collaborate">Open workspace</a>
+  </main>
+  <script>window.location.replace("https://aops-audit-workspace.nlibman97.chatgpt.site/collaborate");</script>
 </body>
 </html>
