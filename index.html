@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AoPS Grading Audit · Demo</title>
+  <meta name="description" content="A fabricated-data demonstration of shared sampling and independent releaser audits.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#audit" data-view="audit"><span>A</span><strong>AoPS Grading Audit</strong><em>FAKE DATA</em></a>
+    <nav><a href="#submissions" data-view="submissions">Submissions</a><a href="#audit" data-view="audit" class="active">Audit mode</a><a href="#stats" data-view="stats">Stats</a></nav>
+    <label>Reviewer<select id="reviewer"><option>Tanny</option><option>Noah</option><option>Hannah</option></select></label>
+  </header>
+  <main id="app"><div class="loading">Loading fabricated submissions…</div></main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
