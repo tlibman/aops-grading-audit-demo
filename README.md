@@ -2,8 +2,8 @@
 
 Canonical production site: https://tlibman.github.io/grader-releaser-auditing/
 
-This repository publishes the compiled static reviewer workspace maintained in the private `tlibman/aops-grading-audit` repository.
+This repository publishes the compiled static teammate reviewer workspace maintained in the private `tlibman/aops-grading-audit` repository.
 
-GitHub Pages serves only the interface. On the owner's Mac, it connects to the loopback collaboration API at `127.0.0.1:8765`; encrypted batches and saves remain in the local collaboration database.
+GitHub Pages serves only the interface. Reviewers add encrypted batch files, unlock them locally in the browser, and export encrypted result files for Mission Control to import. The site does not require an account or a connection to the owner's Mac.
 
-No warehouse data, decrypted submissions, audit notes, passwords, credentials, or encryption keys belong in this public repository.
+No batch files, warehouse data, decrypted submissions, audit notes, passwords, credentials, or encryption keys belong in this public repository.
