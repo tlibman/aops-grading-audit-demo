@@ -1,5 +1,7 @@
 # Deployment instructions
 
+> **HARD REQUIREMENT:** This is the only production website repository. Never use ChatGPT Sites, the Sites skill/plugin, a `chatgpt.site` URL, or `.openai/hosting.json` for this project. Never propose ChatGPT Sites as a preview or fallback unless the user explicitly reverses this requirement in the current conversation.
+
 The canonical production and user-facing URL is:
 
 `https://tlibman.github.io/grader-releaser-auditing/`

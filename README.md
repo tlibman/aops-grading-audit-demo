@@ -1,5 +1,7 @@
 # AoPS Audit Workspace
 
+> **GitHub Pages only:** this project must never be deployed through ChatGPT Sites. The canonical site and repository below are the complete production hosting setup.
+
 Canonical production site: https://tlibman.github.io/grader-releaser-auditing/
 
 This repository publishes the compiled static teammate reviewer workspace maintained in `tlibman/aops-grading-audit`.
