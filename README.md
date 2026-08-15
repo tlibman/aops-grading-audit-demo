@@ -1,11 +1,7 @@
-# AoPS Audit Workspace
+# AoPS reviewer site — retired
 
-> **GitHub Pages only:** this project must never be deployed through ChatGPT Sites. The canonical site and repository below are the complete production hosting setup.
+The GitHub Pages reviewer site was retired in August 2026. Its application assets and encrypted test batches have been removed, and GitHub Pages is disabled for this repository.
 
-Canonical production site: https://tlibman.github.io/grader-releaser-auditing/
+AoPS grading audits now run only in the local Mac application from [`tlibman/aops-grading-audit`](https://github.com/tlibman/aops-grading-audit). Tanny, Noah, and Hannah each run that app and refresh the warehouse from their own computer; shared audit state is coordinated through Git.
 
-This repository publishes the compiled static teammate reviewer workspace maintained in `tlibman/aops-grading-audit`.
-
-The owner's Mac publishes ciphertext-only batch packages under `data/batches/` and an integrity index at `data/batches.json`. The website loads them automatically. Reviewers unlock them locally in the browser and download encrypted result files for Mission Control to import. The site does not require an account or a connection to the owner's Mac.
-
-No plaintext batch data, warehouse data, decrypted submissions, audit notes, passwords, credentials, or encryption keys belong in this public repository.
+This repository is retained only as a record of the retired deployment. Do not publish application assets, batch data, or another reviewer website here.
